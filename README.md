@@ -1,2 +1,2 @@
-# cctsa-scheduled-callback
-Project for hosting the web service to schedule callbacks for WxCC TSA demo purposes.
+# cctsa-scheduled-callback-widget
+Project for hosting the WxCC Agent Desktop web widget to schedule callbacks for demo purposes.
