@@ -83,7 +83,7 @@ export class VoiceTriggerWorkflows extends LitElement {
      * @private
      * @type {string}
      */
-    this._maxCallbackDays = today.toISOString();
+    this._maxCallbackDays = today.toISOString().replace(/T/, '').replace(/\.[0-9]+$/, '');
 
     /**
      * The error handler message.
