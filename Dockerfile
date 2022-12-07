@@ -24,10 +24,11 @@ FROM node:18-slim
 WORKDIR /usr/src/app
 
 RUN mkdir -p /usr/src/app/public
+RUN mkdir -p /usr/src/app/src
 
 # Copy dependency manifests and code to the image.
 COPY package*.json ./
-COPY ./src/ ./
+COPY ./src/ ./src/
 COPY ./public/ ./public/
 
 # Install node dependencies on image and start node.
