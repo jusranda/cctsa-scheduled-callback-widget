@@ -22,6 +22,7 @@
 
 import { LitElement, html } from "lit";
 import style from './style.scss';
+const alert = require('alert'); 
 
 /**
  * Implementation for WxCC Voice Trigger Workflow widget for the WxCC Agent Desktop
@@ -197,7 +198,6 @@ export class VoiceTriggerWorkflows extends LitElement {
      */
     async function submitForm(url, body) {
       try {
-          
         const response = await fetchWithTimeout(url, {
           timeout: 6000,
           method: 'POST',
@@ -207,8 +207,20 @@ export class VoiceTriggerWorkflows extends LitElement {
         const data = await response.json();
         console.log('voice-trigger-workflow Post Result', response.status, data);
 
-        // TODO: Add error handling here.
-
+        // TODO: Refine error handling here.
+        switch (data.retval) {
+          case 0:
+            alert('Success');
+            break;
+          case -1:
+          case 1:
+          case 2:
+            alert(`Error ${data.retval}: ${data.retmsg}`);
+            break;
+          default:
+            alert(`Unhandled Error Code ${data.retval}: ${data.retmsg}`);
+            break;
+        }
       } catch (error) {
         console.log('voice-trigger-workflow Post Error', error);
       }
