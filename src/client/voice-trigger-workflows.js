@@ -250,19 +250,19 @@ export class VoiceTriggerWorkflows extends LitElement {
         // TODO: Refine error handling here.
         switch (data.retval) {
           case 0:
-            alert('Callback Scheduled Successfully');
+            alert('Callback Scheduled Successfully', 'You may now confirm the callback with the customer.');
             break;
           case -1:
           case 1:
           case 2:
-            alert(`Failed to Schedule a Callback - Error [${data.retval}]: ${data.retmsg}`);
+            alert('Failed to Schedule a Callback', `Error [${data.retval}]: ${data.retmsg}`);
             break;
           default:
-            alert(`Failed to Schedule a Callback - Error [${data.retval}]: ${data.retmsg}`);
+            alert('Failed to Schedule a Callback', `Error [${data.retval}]: ${data.retmsg}`);
             break;
         }
       } catch (error) {
-        alert(`Failed to Schedule a Callback - Error [${error.code}]: ${error.message}`);
+        alert('Failed to Schedule a Callback', `Error [${error.code}]: ${error.message}`);
         console.error('voice-trigger-workflow Post Error', error);
       }
     }
