@@ -101,7 +101,6 @@ export class VoiceTriggerWorkflows extends LitElement {
     this._selected = null;
   }
 
-
   triggerClicked(event){
     async function fetchWithTimeout(resource, options = {}) {
       const { timeout = 6000 } = options;  
@@ -181,7 +180,6 @@ export class VoiceTriggerWorkflows extends LitElement {
     }
   }
 
- 
   render() {
     return html`
       ${this._showBtn
@@ -208,7 +206,7 @@ export class VoiceTriggerWorkflows extends LitElement {
                     
                     <footer>
                       <button data-id="${index}" @click=${this.cancelClicked} class="cancel-btn">Cancel</button>
-                      <button data-id="${index}" @click=${this.triggerClicked} class="trigger-btn">Trigger</button>
+                      <button data-id="${index}" @click=${this.triggerClicked} class="trigger-btn">Schedule</button>
                     </footer>
                   </div>
                 `)}
