@@ -244,10 +244,10 @@ export class VoiceTriggerWorkflows extends LitElement {
           case -1:
           case 1:
           case 2:
-            alert(`Error ${data.retval}: ${data.retmsg}`);
+            alert(`Error [${data.retval}]: ${data.retmsg}`);
             break;
           default:
-            alert(`Unhandled Error Code ${data.retval}: ${data.retmsg}`);
+            alert(`Unhandled Error [${data.retval}]: ${data.retmsg}`);
             break;
         }
       } catch (error) {
