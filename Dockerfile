@@ -28,7 +28,7 @@ RUN mkdir -p ./src
 
 # Copy dependency manifests and code to the image.
 COPY package*.json ./
-COPY webpack.config.json ./
+COPY webpack.config.js ./
 COPY ./src/ ./src/
 COPY ./public/ ./public/
 
