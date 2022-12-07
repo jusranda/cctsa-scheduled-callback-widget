@@ -73,17 +73,28 @@ export class VoiceTriggerWorkflows extends LitElement {
     this._config = null;
     this._selected = null;
 
-    const today = new Date();
+    const minDateTime = new Date();
+    const maxDateTime = new Date();
     const maxDays = 30;
-    today.setDate(today.getDate() + maxDays);
+    const minMinutes = 15;
+    maxDateTime.setDate(minDateTime.getDate() + maxDays);
+    minDateTime.setMinutes(minDateTime.getMinutes() + minMinutes);
 
     /**
-     * The error handler message.
+     * The mininum acceptable date/time value for scheduling callback calls.
      * 
      * @private
      * @type {string}
      */
-    this._maxCallbackDays = today.toISOString().replace(/[TZ]/, ' ').replace(/\.[a-zA-Z0-9]+$/, '');
+    this._minCallbackTime = minDateTime.toISOString().replace(/[TZ]/, ' ').replace(/\.[a-zA-Z0-9]+$/, '');
+
+    /**
+     * The maxmimum acceptable date/time value for scheduling callback calls.
+     * 
+     * @private
+     * @type {string}
+     */
+    this._maxCallbackTime = maxDateTime.toISOString().replace(/[TZ]/, ' ').replace(/\.[a-zA-Z0-9]+$/, '');
 
     /**
      * The error handler message.
@@ -301,7 +312,7 @@ export class VoiceTriggerWorkflows extends LitElement {
           if (param.type === 'datetime') {
             return html`
               <label>${param.label}</label>
-              <input type="datetime-local" data-id-input="${index}" name="${param.name}" max="${this._maxCallbackDays}">
+              <input type="datetime-local" data-id-input="${index}" name="${param.name}" mix="${this._minCallbackTime}" max="${this._maxCallbackTime}">
             `
           }
         })}
