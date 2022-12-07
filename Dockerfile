@@ -38,4 +38,7 @@ RUN npm ci
 # Build the webpack assets.
 RUN npm run build
 
+# Remove dev dependencies after build.
+#RUN npm prune --production
+
 CMD [ "npm", "run", "serve" ]
