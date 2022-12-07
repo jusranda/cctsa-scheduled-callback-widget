@@ -33,7 +33,7 @@ COPY ./src/ ./src/
 COPY ./public/ ./public/
 
 # Install node dependencies on image and start node.
-RUN npm ci --only=production
+RUN npm ci
 
 # Build the webpack assets.
 RUN npm run build
