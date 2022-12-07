@@ -22,7 +22,6 @@
 
 import { LitElement, html } from "lit";
 import style from './style.scss';
-const alert = require('alert'); 
 
 /**
  * Implementation for WxCC Voice Trigger Workflow widget for the WxCC Agent Desktop
@@ -73,7 +72,25 @@ export class VoiceTriggerWorkflows extends LitElement {
     this._showBtn = false;
     this._config = null;
     this._selected = null;
+
+    /**
+     * The error handler message.
+     * 
+     * @private
+     * @type {string}
+     */
+    this._errorMessage = '';
+
+    /**
+     * The error message style.
+     * 
+     * @private
+     * @type {string}
+     */
+    this._errorStyle = 'color:red';
   }
+
+  
 
   /**
    * Invoked when the component is added to the document's DOM.
@@ -292,6 +309,7 @@ export class VoiceTriggerWorkflows extends LitElement {
       ${this._showBtn
           ? html`
           <div id="voice-trigger-workflow" .className=${this._theme}>
+            <span id="error" style="${this._errorStyle}" >${this._errorMessage}</span>
             <div id="btn" @click=${this.btnClicked}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg></div>
             <div id="main" ?opened=${this._mainIsOpen}>
               <div id="menu" ?opened=${this._menuIsOpen}>
