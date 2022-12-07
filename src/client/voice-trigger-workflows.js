@@ -247,7 +247,6 @@ export class VoiceTriggerWorkflows extends LitElement {
         const data = await response.json();
         console.log('voice-trigger-workflow Post Result', response.status, data);
 
-        // TODO: Refine error handling here.
         switch (data.retval) {
           case 0:
             alert('Callback Scheduled Successfully', 'You may now confirm the callback with the customer.');
