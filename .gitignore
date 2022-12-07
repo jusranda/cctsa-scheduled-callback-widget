@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Build Webpack Files
+public/voice-trigger-workflows.js
+public/voice-trigger-workflows.js.LICENSE.txt
