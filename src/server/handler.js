@@ -21,10 +21,6 @@
  */
 'use strict';
 
-////////////////////////////////
-// Imports and Initialization //
-////////////////////////////////
-
 /**
  * Entry point placeholder for handling '/' requests.  This container should only server from "/public".
  * 
