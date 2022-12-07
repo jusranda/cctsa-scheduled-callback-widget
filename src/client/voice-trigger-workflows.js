@@ -312,7 +312,7 @@ export class VoiceTriggerWorkflows extends LitElement {
           if (param.type === 'datetime') {
             return html`
               <label>${param.label}</label>
-              <input type="datetime-local" data-id-input="${index}" name="${param.name}" mix="${this._minCallbackTime}" max="${this._maxCallbackTime}">
+              <input type="datetime-local" data-id-input="${index}" name="${param.name}" min="${this._minCallbackTime}" max="${this._maxCallbackTime}">
             `
           }
         })}
