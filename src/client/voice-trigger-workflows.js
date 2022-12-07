@@ -73,6 +73,18 @@ export class VoiceTriggerWorkflows extends LitElement {
     this._config = null;
     this._selected = null;
 
+    const today = new Date();
+    const maxDays = (process.env.MAX_CALLBACK_DAYS != undefined) ? process.env.MAX_CALLBACK_DAYS : 30;
+    today.setDate(today.getDate() + maxDays);
+
+    /**
+     * The error handler message.
+     * 
+     * @private
+     * @type {string}
+     */
+    this._maxCallbackDays = today.toISOString().split('T')[0];
+
     /**
      * The error handler message.
      * 
@@ -288,7 +300,7 @@ export class VoiceTriggerWorkflows extends LitElement {
           if (param.type === 'datetime') {
             return html`
               <label>${param.label}</label>
-              <input type="datetime-local" data-id-input="${index}" name="${param.name}" max="2022-12-09 23:59:59">
+              <input type="datetime-local" data-id-input="${index}" name="${param.name}" max="${this._maxCallbackDays}">
             `
           }
         })}
