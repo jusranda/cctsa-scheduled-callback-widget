@@ -42,4 +42,4 @@ RUN npm run build
 RUN npm prune --production
 
 # Docker image entry point.
-CMD [ "node", "server/index.js" ]
+CMD [ "node", "src/server/index.js" ]
