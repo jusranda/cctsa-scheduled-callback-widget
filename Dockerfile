@@ -39,6 +39,7 @@ RUN npm ci
 RUN npm run build
 
 # Remove dev dependencies after build.
-#RUN npm prune --production
+RUN npm prune --production
 
-CMD [ "npm", "run", "serve" ]
+# Docker image entry point.
+CMD [ "node", "server/index.js" ]
