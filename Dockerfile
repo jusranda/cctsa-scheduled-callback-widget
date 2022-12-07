@@ -23,11 +23,12 @@
 FROM node:18-slim
 WORKDIR /usr/src/app
 
-RUN mkdir -p /usr/src/app/public
-RUN mkdir -p /usr/src/app/src
+RUN mkdir -p ./public
+RUN mkdir -p ./src
 
 # Copy dependency manifests and code to the image.
 COPY package*.json ./
+COPY webpack.config.json ./
 COPY ./src/ ./src/
 COPY ./public/ ./public/
 
