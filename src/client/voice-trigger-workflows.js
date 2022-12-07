@@ -239,19 +239,20 @@ export class VoiceTriggerWorkflows extends LitElement {
         // TODO: Refine error handling here.
         switch (data.retval) {
           case 0:
-            alert('Success');
+            alert('Callback Scheduled Successfully');
             break;
           case -1:
           case 1:
           case 2:
-            alert(`Error [${data.retval}]: ${data.retmsg}`);
+            alert(`Failed to Schedule a Callback - Error [${data.retval}]: ${data.retmsg}`);
             break;
           default:
-            alert(`Unhandled Error [${data.retval}]: ${data.retmsg}`);
+            alert(`Failed to Schedule a Callback - Error [${data.retval}]: ${data.retmsg}`);
             break;
         }
       } catch (error) {
-        console.log('voice-trigger-workflow Post Error', error);
+        alert(`Failed to Schedule a Callback - Error [${error.code}]: ${error.message}`);
+        console.error('voice-trigger-workflow Post Error', error);
       }
     }
 
