@@ -74,7 +74,7 @@ export class VoiceTriggerWorkflows extends LitElement {
     this._selected = null;
 
     const today = new Date();
-    const maxDays = (process.env.MAX_CALLBACK_DAYS != undefined) ? process.env.MAX_CALLBACK_DAYS : 30;
+    const maxDays = 30;
     today.setDate(today.getDate() + maxDays);
 
     /**
